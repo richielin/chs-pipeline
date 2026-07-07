@@ -1,0 +1,97 @@
+Look at the image of this CHS Patient Profile PDF for the NYC Jail System.
+
+Extract ALL numeric data from this 1-page report. Return ONLY valid JSON with the structure described below.
+Use null ONLY if the value is genuinely not visible.
+
+IMPORTANT: Read the charts carefully. Here is the layout:
+
+=== TOP-LEFT CHART: Average Daily Census & Median LOS ===
+Line+bar chart with months on x-axis (JAN through DEC, may only show up to current month).
+Left y-axis: Average Daily Census (5000-8000)
+Right y-axis: Median Length of Stay (100-160 days)
+Find the LATEST month's values:
+- average_daily_census: the bar height for the latest month (integer)
+- median_length_of_stay_days: the line value for the latest month (integer)
+
+=== TOP-RIGHT CHART: Age Distribution ===
+Three data series:
+- Age 18-21% (left y-axis, ~0-16%)
+- Age 55+% (left y-axis, ~0-16%)
+- Median Age (right y-axis, ~30-35)
+Find the LATEST month's values for all three.
+
+=== MIDDLE SCORECARDS ===
+Two large percentage values side by side:
+- percentage (homeless): "Homeless or Likely to be Homeless" percentage
+- percentage (medicaid): "Have Medicaid Coverage" percentage
+
+=== BOTTOM BAR CHART: Health Conditions ===
+Three sections with horizontal bars. Values are percentages. Read EACH individual bar value exactly as shown.
+
+MENTAL HEALTH section (green bars):
+- "Enrolled in mental health services" → extract as mh_enrolled_pct
+- "Serious mental illness" → extract as serious_mh_pct
+Aggregate: estimate overall mental_health_history_pct from these.
+
+SUBSTANCE USE section (orange bars):
+- "Alcohol use disorder" → extract as alcohol_use_pct
+- "Opioid use disorder" → extract as opioid_use_pct
+Aggregate: estimate overall substance_use_history_pct from these.
+
+CHRONIC MEDICAL CONDITIONS section (blue bars) — 8 individual conditions:
+- "Pulmonary: Asthma, COPD, and other lung disease" → pulmonary_pct
+- "Cardiovascular: Hypertension, ischemic heart disease..." → cardiovascular_pct
+- "Neurologic: Epilepsy & related disorders; cerebrovascular disease and history of stroke" → neurologic_pct
+- "Endocrine: Diabetes mellitus" → endocrine_pct
+- "Renal: Chronic kidney disease stage 3+" → renal_pct
+- "Malignancy" → malignancy_pct
+- "Hepatitis B/C" → hepatitis_pct
+- "HIV/AIDS" → hiv_pct
+Aggregate: estimate overall chronic_medical_history_pct from these.
+
+For each module, estimate your confidence (0.0–1.0) based on how clearly the values are visible.
+
+Return this exact JSON structure:
+{
+  "report_month": "2026-05",
+  "modules": {
+    "census_los": {
+      "average_daily_census": 6744,
+      "median_length_of_stay_days": 151,
+      "confidence": 0.95
+    },
+    "age_distribution": {
+      "pct_18_21": 10.0,
+      "pct_55_plus": 35.0,
+      "median_age": 32,
+      "confidence": 0.90
+    },
+    "homeless": {
+      "percentage": 29.0,
+      "confidence": 0.95
+    },
+    "medicaid": {
+      "percentage": 85.0,
+      "confidence": 0.95
+    },
+    "conditions": {
+      "mental_health_history_pct": 60.0,
+      "substance_use_history_pct": 26.0,
+      "chronic_medical_history_pct": 28.0,
+      "mh_enrolled_pct": 38.0,
+      "serious_mh_pct": 22.0,
+      "alcohol_use_pct": 14.0,
+      "opioid_use_pct": 12.0,
+      "pulmonary_pct": 8.0,
+      "cardiovascular_pct": 6.0,
+      "neurologic_pct": 4.0,
+      "endocrine_pct": 3.0,
+      "renal_pct": 2.0,
+      "malignancy_pct": 1.0,
+      "hepatitis_pct": 2.0,
+      "hiv_pct": 1.0,
+      "confidence": 0.85
+    }
+  }
+}
+Return ONLY the JSON object, no other text, no markdown formatting.

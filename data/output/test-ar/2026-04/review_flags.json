@@ -1,0 +1,8 @@
+{
+  "needs_review": true,
+  "issues": [
+    "report_period is missing or empty",
+    "No summary or facility pages found \u2014 at least one required",
+    "Low confidence score (0.000)"
+  ]
+}

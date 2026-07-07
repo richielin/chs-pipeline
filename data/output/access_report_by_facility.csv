@@ -1,0 +1,9 @@
+report_date,facility,completed_intakes,avg_time_to_completion_hrs,mh_referrals,mh_seen_72hrs,clinic_medical_requested,clinic_medical_completed,clinic_medical_completed_pct,clinic_medical_chs_rescheduled,clinic_medical_chs_rescheduled_pct,clinic_medical_not_seen,clinic_medical_not_seen_pct,clinic_nursing_requested,clinic_nursing_completed,clinic_nursing_completed_pct,clinic_nursing_chs_rescheduled,clinic_nursing_chs_rescheduled_pct,clinic_nursing_not_seen,clinic_nursing_not_seen_pct,clinic_mh_requested,clinic_mh_completed,clinic_mh_completed_pct,clinic_mh_chs_rescheduled,clinic_mh_chs_rescheduled_pct,clinic_mh_not_seen,clinic_mh_not_seen_pct,med_appointments,med_completed,med_completed_pct,med_not_seen,med_not_seen_pct,care_clinic,care_housing,care_medication,care_total_direct,care_indirect,care_total_all
+2026-04-01,RNDC,1843,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-01,EMTC,1631,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-01,GRVC,567,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-01,NIC,629,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-01,OBCC,855,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-01,RESH,860,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-01,RMSC,687,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2026-04-01,RNDC,791,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

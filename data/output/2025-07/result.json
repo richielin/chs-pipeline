@@ -1,0 +1,43 @@
+{
+  "document_id": "2025-07",
+  "source_type": "patient_profile",
+  "report_month": "2025-07",
+  "template_version": "pp_v1",
+  "processed_at": "2026-07-06T02:07:50.062022+00:00",
+  "confidence": 0.95,
+  "modules": {
+    "census_los": {
+      "average_daily_census": 7732,
+      "median_length_of_stay_days": 153,
+      "confidence": 0.95
+    },
+    "age_distribution": {
+      "pct_18_21": 8.0,
+      "pct_55_plus": 9.0,
+      "median_age": 35,
+      "confidence": 0.95
+    },
+    "homeless": {
+      "percentage": 27.0,
+      "confidence": 0.95
+    },
+    "medicaid": {
+      "percentage": 85.0,
+      "confidence": 0.95
+    },
+    "conditions": {
+      "mental_health_history_pct": 57.0,
+      "substance_use_history_pct": 29.0,
+      "chronic_medical_history_pct": 28.0,
+      "confidence": 0.95
+    }
+  },
+  "model_run": {
+    "provider": "gemini",
+    "validated": true,
+    "validation_errors": [],
+    "rendered_pages": [
+      "data\\output\\2025-07\\rendered\\page_0001.png"
+    ]
+  }
+}

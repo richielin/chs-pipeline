@@ -1,0 +1,17 @@
+[project]
+name = "chs-pipeline"
+version = "0.1.0"
+description = "CHS Correctional Health Data Extraction Pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "pypdfium2",
+    "pydantic>=2.0",
+    "httpx",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.backends._legacy:_Backend"

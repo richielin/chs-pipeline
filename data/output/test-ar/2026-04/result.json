@@ -1,0 +1,65 @@
+{
+  "document_id": "2026-04",
+  "source_type": "access_report",
+  "report_period": "",
+  "report_type": "monthly",
+  "template_version": "ar_v1",
+  "processed_at": "2026-07-06T02:20:38.360684+00:00",
+  "confidence": 0.0,
+  "summary": null,
+  "facilities": [],
+  "model_runs": [
+    {
+      "page_type": "other",
+      "page_number": 1
+    },
+    {
+      "page_type": "other",
+      "page_number": 2
+    },
+    {
+      "page_type": "other",
+      "page_number": 3
+    },
+    {
+      "page_type": "other",
+      "page_number": 4
+    },
+    {
+      "page_type": "other",
+      "page_number": 5
+    },
+    {
+      "page_type": "other",
+      "page_number": 6
+    },
+    {
+      "page_type": "other",
+      "page_number": 7
+    },
+    {
+      "page_type": "other",
+      "page_number": 8
+    },
+    {
+      "page_type": "other",
+      "page_number": 9
+    },
+    {
+      "page_type": "other",
+      "page_number": 10
+    },
+    {
+      "page_type": "other",
+      "page_number": 11
+    },
+    {
+      "page_type": "other",
+      "page_number": 12
+    },
+    {
+      "page_type": "other",
+      "page_number": 13
+    }
+  ]
+}

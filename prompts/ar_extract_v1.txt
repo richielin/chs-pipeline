@@ -1,0 +1,66 @@
+You are analyzing a page from a CHS Access Report for the NYC Jail System.
+This is a multi-page PDF report. Each page falls into one of these types:
+
+=== PAGE STRUCTURE ===
+Pages 1-3: Cover page, Table of Contents, Data Dictionary → page_type = "other"
+Page 4 (typically): "III. Access Report Summary" → page_type = "summary"
+Pages 5+: Per-facility breakdowns, titled like "V. Access Report EMTC" or "IV. Access Report BHTU" → page_type = "facility"
+
+=== CLASSIFICATION RULES ===
+- If the page title contains "Access Report Summary" (section III): page_type = "summary"
+- If the page title contains "Access Report" followed by a facility code like EMTC, GRVC, NIC, OBCC, RESH, RMSC, AMKC, VCBB, BKDC, RNDC, WF, or BHTU: page_type = "facility"
+- Otherwise (cover, TOC, data dictionary, blank page): page_type = "other"
+
+=== FOR FACILITY PAGES ===
+Extract the facility_code from the page title. It's the word(s) after "Access Report" in the section heading.
+Look for patterns like "V. Access Report EMTC" → code is "EMTC"
+Also handle non-standard codes like "BHTU" (Behavioral Health Treatment Unit).
+
+=== EXTRACTION ===
+For summary and facility pages, extract ALL visible table data.
+The tables have rows like:
+1.1 Completed CHS Intakes 1843
+1.2 Average time to completion once known to CHS (hours) 4.5
+
+For each metric, extract:
+- metric_name: The label (e.g. "Completed CHS Intakes")
+- value: The value as a string
+- unit: The unit if visible (e.g. "hours", "days", "count", or null)
+- confidence: 0.0-1.0
+
+Pay attention to section numbers (1.1, 1.2, 2.1, etc.) and include the section context.
+Multiple sections exist: Intakes (1.x), Mental Health (2.x), Clinic Appointments (3.x), Medication (4.x), Patient Care (5.x).
+
+=== OUTPUT FORMAT ===
+Return ONLY valid JSON, no other text:
+
+For summary pages:
+{
+  "page_type": "summary",
+  "facility_code": null,
+  "metrics": [
+    {"metric_name": "Completed CHS Intakes", "value": "1843", "unit": "count", "confidence": 0.95}
+  ],
+  "confidence": 0.9
+}
+
+For facility pages:
+{
+  "page_type": "facility",
+  "facility_code": "EMTC",
+  "metrics": [
+    {"metric_name": "Completed CHS Intakes", "value": "1631", "unit": "count", "confidence": 0.95}
+  ],
+  "confidence": 0.9
+}
+
+For other pages:
+{
+  "page_type": "other",
+  "facility_code": null,
+  "metrics": [],
+  "confidence": 0.0
+}
+
+IMPORTANT: Extract EVERY visible row from EVERY table. Do not skip any rows.
+Preserve labels exactly as written. Use null for empty/unreadable cells.
