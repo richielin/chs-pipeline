@@ -3,7 +3,7 @@
   "source_type": "patient_profile",
   "report_month": "2023-11",
   "template_version": "pp_v1",
-  "processed_at": "2026-07-06T01:58:49.135893+00:00",
+  "processed_at": "2026-07-07T02:29:07.942828+00:00",
   "confidence": 0.9199999999999999,
   "modules": {
     "census_los": {
@@ -29,6 +29,18 @@
       "mental_health_history_pct": 54.0,
       "substance_use_history_pct": 27.0,
       "chronic_medical_history_pct": 29.0,
+      "mh_enrolled_pct": 54.0,
+      "serious_mh_pct": 21.0,
+      "alcohol_use_pct": 21.0,
+      "opioid_use_pct": 27.0,
+      "pulmonary_pct": 29.0,
+      "cardiovascular_pct": 1.0,
+      "neurologic_pct": 5.0,
+      "endocrine_pct": 14.0,
+      "renal_pct": 2.0,
+      "malignancy_pct": 7.0,
+      "hepatitis_pct": 3.0,
+      "hiv_pct": 3.0,
       "confidence": 0.85
     }
   },
